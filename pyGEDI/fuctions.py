@@ -52,7 +52,7 @@ def idsBox(fileh5,latlayer,lonlayer,bbox):
         x=fileh5[beam][latlayer]        
         y=fileh5[beam][lonlayer]
         for i in range(len(x)):
-            if ((abs(x[i])<=abs(ul_lat)) and (abs(x[i])>=abs(lr_lat)) and  (abs(y[i])<=abs(lr_lon)) and (abs(y[i])>=abs(ul_lon))):
+            if ((x[i]<=ul_lat) and (x[i]>=lr_lat) and  (y[i]<=lr_lon) and (y[i]>=ul_lon)):
                 ids+=[(beam,fileh5[beam]['shot_number'][i])]
     return ids
 
